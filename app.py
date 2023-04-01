@@ -67,7 +67,7 @@ body = dbc.Container([
             html.Br(),
             html.Br(),
 
-            html.Img(id='output-img'),
+            # html.Img(id='output-img'),
 
             html.Br(),
             html.Br(),
@@ -95,6 +95,35 @@ body = dbc.Container([
 
     ]),
 
+    dbc.Row([
+    
+        dbc.Col([], sm=3),
+
+        dbc.Col([
+    
+            dbc.Button('Rock', id='input-rock-button', size="lg",
+                style={'backgroundColor': '#B59DFA', 'color': '#013218', 'font-weight': 'bold'})
+
+        ], sm=2),
+
+        dbc.Col([
+    
+            dbc.Button('Paper', id='input-paper-button', size="lg",
+                style={'backgroundColor': '#B59DFA', 'color': '#013218', 'font-weight': 'bold'})
+
+        ], sm=2),
+
+        dbc.Col([
+    
+            dbc.Button('Scissors', id='input-scissors-button', size="lg",
+                style={'backgroundColor': '#B59DFA', 'color': '#013218', 'font-weight': 'bold'})
+
+        ], sm=2),
+
+        dbc.Col([], sm=3)
+    
+    ]),
+
 ], className="mt-4", fluid=True)
 
 app.layout = html.Div([body], style={
@@ -108,28 +137,37 @@ app.layout = html.Div([body], style={
 ################################################
 
 
-@app.callback(
-    Output('output-img', 'children'),
-    Input('input-button', 'n_clicks')
-)
-def output_image(n_clicks):
+# @app.callback(
+#     Output('output-img', 'children'),
+#     Input('input-button', 'n_clicks')
+# )
+# def output_image(n_clicks):
 
-    image_path = 'assets/placeholder.jpg'
+#     image_path = 'assets/placeholder.jpg'
 
-    pil_image = Image.open(image_path)
+#     pil_image = Image.open(image_path)
     
-    return pil_image
+#     return pil_image
 
 
 @app.callback(
     Output('output-text', 'children'),
-    Input('input-button', 'n_clicks')
+    [Input('input-button', 'n_clicks'),
+     Input('input-rock-button', 'n_clicks'),
+     Input('input-paper-button', 'n_clicks'),
+     Input('input-scissors-button', 'n_clicks')]
 )
-def update_text(n_clicks):
+def update_text(n_clicks, n_rock_clicks, n__paper_clicks, n_scissors_clicks):
 
     if n_clicks is not None:
 
-        random_entity = random.choice(['Placeholder', 'Placeholder', 'Placeholder'])
+        # need randomizer for opponent's move
+        # need to specify logic for move vs move
+        # need to track state-of-play, i.e. pre move, post move
+
+        random_entity = random.choice(['rock', 'paper', 'scissors'])
+
+        print(random_entity)
 
         ret = 'Placeholder'
 
