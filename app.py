@@ -4,7 +4,7 @@ from pymongo import MongoClient
 def create_app():
     app = Flask(__name__)
     client = MongoClient()
-    app.db = client.user_data_app
+    app.db = client.animal_game_app
 
     @app.route("/", methods=["GET"])
     def home():
@@ -13,4 +13,18 @@ def create_app():
 
         return render_template("home.html", entries=entries)
     
+    @app.route("/about", methods=["GET"])
+    def about():
+
+        entries = [1,2,3]
+
+        return render_template("about.html", entries=entries)
+    
+    @app.route("/faceoff/<animal>/<game>", methods=["GET", "POST"])
+    def faceoff(animal, game):
+        
+        entries = [1,2,3]
+
+        return render_template("faceoff.html", entries=entries)
+
     return app
