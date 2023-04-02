@@ -50,6 +50,18 @@ body {
     color: inherit;
 }
 
+.main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.image_about {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .footer {
     background-color: #323f43;
     padding: 24px 0;
