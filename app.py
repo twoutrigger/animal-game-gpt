@@ -22,9 +22,19 @@ def create_app():
     
     @app.route("/faceoff/<animal>/<game>", methods=["GET", "POST"])
     def faceoff(animal, game):
-        
-        entries = [1,2,3]
 
-        return render_template("faceoff.html", entries=entries)
+        if request.method == "POST":
+
+            if request.form['submit_rps'] in ['rock', 'paper', 'scissors']:
+
+                print('YES')
+
+            else:
+
+                print('NO')                
+
+            return redirect(url_for('home'))
+
+        return render_template("faceoff.html")
 
     return app
