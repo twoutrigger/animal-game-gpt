@@ -9,6 +9,8 @@ def create_app():
     @app.route("/", methods=["GET"])
     def home():
 
+        # need to manage list of animals, games, and outcomes
+        # need to manage steps
         entries = [1,2,3]
 
         return render_template("home.html", entries=entries)
@@ -36,5 +38,12 @@ def create_app():
             return redirect(url_for('home'))
 
         return render_template("faceoff.html")
+    
+    @app.route("/outcome/<animal>/<game>", methods=["GET"])
+    def outcome(animal, game):
+        
+        outcome = 'You win!'
+
+        return render_template("outcome.html", outcome=outcome)
 
     return app
