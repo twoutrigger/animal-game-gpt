@@ -4,6 +4,7 @@ def rock_paper_scissors(x):
 
     # need to implement game logic
     # use while statement to rerun in case of tie
+    # retry
 
     return random.randrange(0, 3, 1) 
 
