@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
+from utilities.utils import rock_paper_scissors
 
 def create_app():
     app = Flask(__name__)
@@ -33,7 +34,9 @@ def create_app():
 
             else:
 
-                print('NO')                
+                print('NO')   
+
+            # need to capture user selection and pass to variable             
 
             return redirect(url_for('home'))
 
@@ -42,7 +45,14 @@ def create_app():
     @app.route("/outcome/<animal>/<game>", methods=["GET"])
     def outcome(animal, game):
         
+        # placeholder
         outcome = 'You win!'
+
+        # might want to convert to json to track outcome vs animal type and game type
+        outcome_list = []
+
+        # need to be able to pass user's selected action
+        rps_outcome = rock_paper_scissors(1)
 
         return render_template("outcome.html", outcome=outcome)
 
