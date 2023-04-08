@@ -1,17 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for
-from pymongo import MongoClient
+# from pymongo import MongoClient
 from utilities.utils import rock_paper_scissors
 
 def create_app():
     app = Flask(__name__)
-    client = MongoClient()
-    app.db = client.animal_game_app
+    # client = MongoClient()
+    # app.db = client.animal_game_app
 
     @app.route("/", methods=["GET"])
     def home():
 
         # need to manage list of animals, games, and outcomes
         # need to manage steps
+        # add "pick your opponent" multiselection button to Home
+        # add duck, panda, fox as options
+
         entries = [1,2,3]
 
         return render_template("home.html", entries=entries)
