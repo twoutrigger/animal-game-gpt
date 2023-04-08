@@ -7,7 +7,7 @@ def create_app():
     # client = MongoClient()
     # app.db = client.animal_game_app
 
-    @app.route("/", methods=["GET"])
+    @app.route("/", methods=["GET", "POST"])
     def home():
 
         # need to manage list of animals, games, and outcomes
@@ -15,47 +15,49 @@ def create_app():
         # add "pick your opponent" multiselection button to Home
         # add duck, panda, fox as options
 
-        entries = [1,2,3]
+        if request.method == "POST":
 
-        return render_template("home.html", entries=entries)
+            animal = request.form['submit_animal']
+            game = 'rock_paper_scissors'
+
+            print(animal)
+
+            return redirect(url_for('faceoff', animal=animal, game=game))
+
+        return render_template("home.html")
     
     @app.route("/about", methods=["GET"])
     def about():
 
-        entries = [1,2,3]
-
-        return render_template("about.html", entries=entries)
+        return render_template("about.html")
     
     @app.route("/faceoff/<animal>/<game>", methods=["GET", "POST"])
     def faceoff(animal, game):
 
         if request.method == "POST":
 
-            if request.form['submit_rps'] in ['rock', 'paper', 'scissors']:
+            choice = request.form['submit_rps']       
 
-                print('YES')
-
-            else:
-
-                print('NO')   
-
-            # need to capture user selection and pass to variable             
-
-            return redirect(url_for('home'))
+            return redirect(url_for('outcome', animal=animal, game=game, choice=choice))
 
         return render_template("faceoff.html")
     
-    @app.route("/outcome/<animal>/<game>", methods=["GET"])
-    def outcome(animal, game):
-        
+    @app.route("/outcome/<animal>/<game>/<choice>", methods=["GET", "POST"])
+    def outcome(animal, game, choice):
+
         # placeholder
         outcome = 'You win!'
 
+        if request.method == "POST":
+            
+            # POST for "Return to Home"
+            return redirect(url_for('home'))
+
         # might want to convert to json to track outcome vs animal type and game type
-        outcome_list = []
+        # outcome_list = []
 
         # need to be able to pass user's selected action
-        rps_outcome = rock_paper_scissors(1)
+        # rps_outcome = rock_paper_scissors(1)
 
         return render_template("outcome.html", outcome=outcome)
 
