@@ -1,4 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<section>
+    <h1>Choose Your Opponent!</h1>
+</section>
+<br>
+<div class="button__multichoice">
+    <section class="left">
+        <form class="form" method="POST">
+            <button class="button__submit" type="submit" name="submit_animal" value="panda">🐼 Panda</button>
+        </form>
+    </section>
+    <section class="center">
+        <form class="form" method="POST">
+            <button class="button__submit" type="submit" name="submit_animal" value="duck">🦆 Duck</button>
+        </form>
+    </section>
+    <section class="right">
+        <form class="form" method="POST">
+            <button class="button__submit" type="submit" name="submit_animal" value="fox">🦊 Fox</button>
+        </form>
+    </section>
+</div>
+
 {% endblock %}
