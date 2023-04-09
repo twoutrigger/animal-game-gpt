@@ -9,7 +9,7 @@ def rock_paper_scissors(choice):
     comp_choice_num = random.randrange(0, 3, 1)
     comp_choice = rps_options[comp_choice_num]
     
-    # in a case of a tie, re-randomize opponent's choice for V1
+    # in a case of a tie, re-randomize opponent's choice for version 1
     while comp_choice == choice:
         comp_choice_num = random.randrange(0, 3, 1)
         comp_choice = rps_options[comp_choice_num]
@@ -47,10 +47,10 @@ def ret_outcome_text(animal, outcome):
     animal_outcome = animal + "_" + outcome
 
     outcome_dict = {
-        'panda_win':  "You've bested panda, you pop champagne to celebrate",
-        'panda_lose': "Panda does not react much to his victory, you however, are devastated",
+        'panda_win':  "You've bested panda, you pop some champagne to celebrate",
+        'panda_lose': "Panda doesn't care much for his victory, you however, are devastated",
         'duck_win':   "You stand up to cheer your victory, leaving duck humiliated in your shadow",
-        'duck_lose':  "Duck is happy for his victory. Duck wears a little hat to celebrate",
+        'duck_lose':  "Duck is happy for his victory. Duck wears a funny little hat to celebrate",
         'fox_win':    "You've bested your arch nemesis. You eat cake in fox's face to celebrate",
         'fox_lose':   "Fox looks gleeful after beating you, shoving cake into her fat little face"
     }
