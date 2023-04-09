@@ -20,17 +20,17 @@ def create_app():
             animal = request.form['submit_animal']
             game = 'rock_paper_scissors'
 
-            print(animal)
-
             return redirect(url_for('faceoff', animal=animal, game=game))
 
         return render_template("home.html")
     
+
     @app.route("/about", methods=["GET"])
     def about():
 
         return render_template("about.html")
     
+
     @app.route("/faceoff/<animal>/<game>", methods=["GET", "POST"])
     def faceoff(animal, game):
 
@@ -39,9 +39,12 @@ def create_app():
             choice = request.form['submit_rps']       
 
             return redirect(url_for('outcome', animal=animal, game=game, choice=choice))
+        
+        faceoff_image_path = "/static/images/faceoff_" + animal + ".png"
 
-        return render_template("faceoff.html")
+        return render_template("faceoff.html", faceoff_image_path=faceoff_image_path)
     
+
     @app.route("/outcome/<animal>/<game>/<choice>", methods=["GET", "POST"])
     def outcome(animal, game, choice):
 
