@@ -1,12 +1,12 @@
-THis web app uses DALLE-2 generated images, to allow to the user to place various games against various animals.
+THis web app uses DALLE-2 generated images to allow to the user to play games against various animals.
 
 The purpose of this app is to refine Flask features that can be used for more commercial apps.
 
 V1 will be a rock-paper-scissors game.
 
-Web app UI will include:
-1. a header
-2. an image box
-3. a text box to display text
-4. a button for randomized rock-paper-scissors, as well as next round
-5. a randomizer for the user, as well as the animal's move
+Features learned during this game:
+1. How to use base.html + extend to minimize duplicate work for UI maintenance
+2. How to route + redirect through multiple URLs
+3. How to use dynamic variables in URLs
+4. How to retrieve dynamic images
+5. How to use AI to generate a decent logo
