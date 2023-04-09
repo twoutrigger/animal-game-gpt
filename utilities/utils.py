@@ -30,4 +30,17 @@ def rock_paper_scissors(choice):
 
     return outcome
 
-# print(rock_paper_scissors('scissors'))
+
+def ret_faceoff_text(animal):
+
+    faceoff_text_dict = {
+        'panda': "A hush falls over the bamboo forest, you stare into the cold dead eyes of panda",
+        'duck': "Unflinching, your opponent duck readies its wing for a decisive move",
+        'fox': "This is what it has come to, you face your nemesis fox one final time"
+    }
+
+    return faceoff_text_dict[animal]
+
+
+def ret_outcome_text(animal, outcome):
+    pass

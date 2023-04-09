@@ -1,19 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
-# from pymongo import MongoClient
-from utilities.utils import rock_paper_scissors
+from utilities.utils import rock_paper_scissors, ret_faceoff_text, ret_outcome_text
 
 def create_app():
+
     app = Flask(__name__)
-    # client = MongoClient()
-    # app.db = client.animal_game_app
 
     @app.route("/", methods=["GET", "POST"])
     def home():
-
-        # need to manage list of animals, games, and outcomes
-        # need to manage steps
-        # add "pick your opponent" multiselection button to Home
-        # add duck, panda, fox as options
 
         if request.method == "POST":
 
@@ -42,7 +35,9 @@ def create_app():
         
         faceoff_image_path = "/static/images/faceoff_" + animal + ".png"
 
-        return render_template("faceoff.html", faceoff_image_path=faceoff_image_path)
+        faceoff_text = ret_faceoff_text(animal)
+
+        return render_template("faceoff.html", faceoff_image_path=faceoff_image_path, faceoff_text=faceoff_text)
     
 
     @app.route("/outcome/<animal>/<game>/<choice>", methods=["GET", "POST"])
