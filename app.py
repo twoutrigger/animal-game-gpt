@@ -52,6 +52,8 @@ def create_app():
         outcome = 'You win!'
 
         if request.method == "POST":
+
+            # add return button functionality
             
             # POST for "Return to Home"
             return redirect(url_for('home'))
@@ -60,8 +62,12 @@ def create_app():
         # outcome_list = []
 
         # need to be able to pass user's selected action
-        # rps_outcome = rock_paper_scissors(1)
+        rps_outcome = rock_paper_scissors(choice)
 
-        return render_template("outcome.html", outcome=outcome)
+        rps_status = rps_outcome['status']
+
+        outcome_image_path = "/static/images/outcome_" + animal + "_rps_" + rps_status + ".png"
+
+        return render_template("outcome.html", outcome=outcome, outcome_image_path=outcome_image_path)
 
     return app
