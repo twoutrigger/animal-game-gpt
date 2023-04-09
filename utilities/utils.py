@@ -47,12 +47,12 @@ def ret_outcome_text(animal, outcome):
     animal_outcome = animal + "_" + outcome
 
     outcome_dict = {
-        'panda_win':  "1",
-        'panda_lose': "2",
-        'duck_win':   "3",
-        'duck_lose':  "4",
-        'fox_win':    "5",
-        'fox_lose':   "6"
+        'panda_win':  "You've bested panda, you pop champagne to celebrate",
+        'panda_lose': "Panda does not react much to his victory, you however, are devastated",
+        'duck_win':   "You stand up to cheer your victory, leaving duck humiliated in your shadow",
+        'duck_lose':  "Duck is happy for his victory. Duck wears a little hat to celebrate",
+        'fox_win':    "You've bested your arch nemesis. You eat cake in fox's face to celebrate",
+        'fox_lose':   "Fox looks gleeful after beating you, shoving cake into her fat little face"
     }
 
     return outcome_dict[animal_outcome]
