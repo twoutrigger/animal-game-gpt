@@ -35,12 +35,24 @@ def ret_faceoff_text(animal):
 
     faceoff_text_dict = {
         'panda': "A hush falls over the bamboo forest, you stare into the cold dead eyes of panda",
-        'duck': "Unflinching, your opponent duck readies its wing for a decisive move",
-        'fox': "This is what it has come to, you face your nemesis fox one final time"
+        'duck':  "Unflinching, your opponent duck readies its wing for a decisive move",
+        'fox':   "This is what it has come to, you face your nemesis fox one final time"
     }
 
     return faceoff_text_dict[animal]
 
 
 def ret_outcome_text(animal, outcome):
-    pass
+
+    animal_outcome = animal + "_" + outcome
+
+    outcome_dict = {
+        'panda_win':  "1",
+        'panda_lose': "2",
+        'duck_win':   "3",
+        'duck_lose':  "4",
+        'fox_win':    "5",
+        'fox_lose':   "6"
+    }
+
+    return outcome_dict[animal_outcome]
