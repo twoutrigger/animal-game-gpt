@@ -43,26 +43,18 @@ def create_app():
     @app.route("/outcome/<animal>/<game>/<choice>", methods=["GET", "POST"])
     def outcome(animal, game, choice):
 
-        # placeholder
-        outcome = 'You win!'
-
         if request.method == "POST":
 
-            # add return button functionality
-            
-            # POST for "Return to Home"
             return redirect(url_for('home'))
 
-        # might want to convert to json to track outcome vs animal type and game type
-        # outcome_list = []
-
-        # need to be able to pass user's selected action
         rps_outcome = rock_paper_scissors(choice)
 
         rps_status = rps_outcome['status']
 
         outcome_image_path = "/static/images/outcome_" + animal + "_rps_" + rps_status + ".png"
 
-        return render_template("outcome.html", outcome=outcome, outcome_image_path=outcome_image_path)
+        outcome_text = ret_outcome_text(animal, rps_status)
+
+        return render_template("outcome.html", outcome_image_path=outcome_image_path, outcome_text=outcome_text)
 
     return app

@@ -2,18 +2,12 @@
 
 {% block content %}
 
-<!-- need to add image(s) -->
-<!-- need to add text summarizing outcome -->
-<!-- need to add button to play another game, or go back to Home -->
-<!-- need to add unique win / lose description for each outcome -->
-<!-- add css style to outcome text -->
-
 <section>
     <img class="image__main" src={{ outcome_image_path }} alt="Outcome Image">
 </section>
 <br>
 <section>
-    </h1> {{ outcome }} </h1>
+    <p class="text__paragraph">{{ outcome_text }}</p>
 </section>
 <section>
     <form class="form" method="POST">
