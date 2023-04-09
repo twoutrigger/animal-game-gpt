@@ -53,8 +53,14 @@ def create_app():
 
         outcome_image_path = "/static/images/outcome_" + animal + "_rps_" + rps_status + ".png"
 
+        if rps_status == 'win':
+            outcome_header = '🎉 YOU WIN 🎉'
+        else:
+            outcome_header = '😞 YOU LOSE 😞'
+
         outcome_text = ret_outcome_text(animal, rps_status)
 
-        return render_template("outcome.html", outcome_image_path=outcome_image_path, outcome_text=outcome_text)
+        return render_template("outcome.html", 
+                               outcome_image_path=outcome_image_path, outcome_header=outcome_header, outcome_text=outcome_text)
 
     return app

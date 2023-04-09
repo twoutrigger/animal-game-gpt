@@ -3,16 +3,23 @@
 {% block content %}
 
 <section>
-    <img class="image__main" src={{ outcome_image_path }} alt="Outcome Image">
+    <img class="image__main" src={{ outcome_image_path }} alt="Outcome Page Image">
 </section>
 <br>
 <section>
+    <h1 class="text__outcome">{{ outcome_header }}</h1>
+</section>
+<section>
     <p class="text__paragraph">{{ outcome_text }}</p>
 </section>
+<br>
+<br>
+<div>
 <section>
     <form class="form" method="POST">
         <button class="button__submit" type="submit" name="submit_return_home">Play Again❔</button>
     </form>
 </section>
+</div>
 
 {% endblock %}

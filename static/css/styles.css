@@ -67,6 +67,11 @@ body {
     text-align: center;
 }
 
+.text__outcome {
+    text-align: center;
+    color: #800020
+}
+
 .text__paragraph {
     text-align: center;
     font-weight: bold;
