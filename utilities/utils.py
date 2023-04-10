@@ -56,3 +56,17 @@ def ret_outcome_text(animal, outcome):
     }
 
     return outcome_dict[animal_outcome]
+
+
+def ret_emoji(x):
+
+    emoji_dict = {
+        'panda': "🐼",
+        'duck': "🦆",
+        'fox': "🦊",
+        'rock': "🗿",
+        'paper': "🧻",
+        'scissors': "✂️",
+    }
+
+    return emoji_dict[x]
