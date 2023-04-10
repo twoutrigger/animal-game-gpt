@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from utilities.utils import rock_paper_scissors, ret_faceoff_text, ret_outcome_text
+from utilities.utils import rock_paper_scissors, ret_faceoff_text, ret_outcome_text, ret_emoji
 
 def create_app():
 
@@ -50,14 +50,14 @@ def create_app():
         rps_outcome = rock_paper_scissors(choice)
 
         rps_status = rps_outcome['status']
+        rps_choice = rps_outcome['choice']
+        rps_comp_choice = rps_outcome['comp_choice']
 
         outcome_image_path = "/static/images/outcome_" + animal + "_rps_" + rps_status + ".png"
 
-        if rps_status == 'win':
-            outcome_header = '🎉 YOU WIN 🎉'
-        else:
-            outcome_header = '😞 YOU LOSE 😞'
-
+        outcome_header = "🧑" + ret_emoji(rps_choice) + " >> YOU " +  rps_status.upper() + " << " + \
+            ret_emoji(rps_comp_choice) + ret_emoji(animal)
+        
         outcome_text = ret_outcome_text(animal, rps_status)
 
         return render_template("outcome.html", 
